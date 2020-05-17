@@ -2,7 +2,38 @@
 <html lang="en">
 
 <head>
-    <meta charset=utf-8 /> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shouldigothere</title>
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+</head>
+<head>
+    <div class="container">
+        <header>
+            <div class="MapPageTitle">
+                <nav>
+                    <ul class="nav" id="nav">
+                        <li style="font-size:27px"><a href="index.html">home</a></li>
+                    </nav>
+                </header>
+                <section>
+                    
+                    <h1 style="font-size:50px">Park Information</h1>
+                    
+                    <h1 style="font-size:27px">Number of people at park: 412</h1>
+                    <h1 style="font-size:27px">Peak hours: 12:00pm - 2:00pm</h1>
+                    <h1 style="font-size:27px">Should you go there?       -      Yes</h1>
+                </section>
+        </div>
+    </div>
+</head>   
+        
+<head> 
+    <meta charset=utf-8 /> '
     <meta name="viewport" content="intial-scale=1.0, user-scalable=no">
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBzjrmFrz1FwngueZlNFd60EaYGkxg6NBA"></script>    
     <script>
@@ -15,10 +46,10 @@
         
         
         function initialize(){
-            var center = new google.maps.LatLng(43.757683, -79.223879);
+            var center = new google.maps.LatLng(43.656618, -79.432765);
             map = new google.maps.Map(document.getElementById('map'),{
                 center: center,
-                zoom: 13
+                zoom: 16
             });
             
             request = {
@@ -76,53 +107,39 @@
         google.maps.event.addDomListener(window, 'load', initialize);
         </script>
         
-    <title>Park Information</title>
+        <title>Park Locator</title> 
+
+        
 
     <style>
-        html, body, #map{
-        height: 80%;
-        margin: 15%;
+        html{
+        height: 100%;
+        margin: 0px;
         padding: 0px;
         }
+
+        body{
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+        }
+
+        #map{
+
+        height: 50%;
+        width: 20%;
+        margin-left: 40%;
+        margin-right: 40%;
+        
+        position: center;        
+
+        }
         </style>
+    </head>  
+    <body> 
+         <div id="map">
+        
+        </div> 
 
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-
-</head>
-
-<body>
-    <div class="container">
-        <header>
-
-            <nav>
-                <ul class="nav" id="nav">
-                    <li style="font-size:22px"><a href="index.html">home</a></li>
-            </nav>
-
-            <section>
-            
-                <h1 style="font-size:50px">Park Information</h1>
-            </section>
-
-            <div id="map">
-       
-            </div>
-
-            <section>
-            
-            <h1 style="font-size:27px">Number of people at park:</h1>
-            <h1 style="font-size:27px">Peak hours:</h1>
-            <h1 style="font-size:27px">Should you go there?</h1>
-            </section>
-
-        </header>
- 
-    </div>
-</body>
-
-
-
-  
-</html>
+   </body> 
+   </html>
