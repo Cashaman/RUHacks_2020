@@ -67,7 +67,7 @@ nav ul li a {
     box-sizing: border-box;
     background: white;
     border-radius: 10px;
-    padding: 10px 20px 9px 20px;
+    padding: 10px 40px 9px 20px;
     font-size: 10px;
 }
 
@@ -104,26 +104,21 @@ hr.solid {
 .container a:hover {
     background-color:none;
     color: rgb(22, 62, 192);
-  }
-
-.grid {
-    margin-left: 33.2%;
-    margin-right: 10%;
-    padding-left: 4%;
-    padding-right: 1%;
-    padding-bottom
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 50px;
-    width: 75%
-    border: none;
-    background-color: rgb(110,196,85);
-    border-radius: 10px;
-    
 }
+
 
 .find-park{
 
-    margin-left: 33.2%;
+    padding-left: 29%;
+    margin-top: 1.5%;
+    max-width: 16%;
+    height: auto;
 
+}
+
+.review-park{
+
+    
+    padding-left: 22%;
+    margin-top: -3.9%;
 }
