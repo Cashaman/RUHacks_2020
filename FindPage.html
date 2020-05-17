@@ -2,9 +2,89 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset=utf-8 /> 
+    <meta name="viewport" content="intial-scale=1.0, user-scalable=no">
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBzjrmFrz1FwngueZlNFd60EaYGkxg6NBA"></script>    
+    <script>
+        var map;
+        var infowindow = new google.maps.InfoWindow();
+        
+        var request;
+        var service;
+        var markers = [];
+        
+        
+        function initialize(){
+            var center = new google.maps.LatLng(43.757683, -79.223879);
+            map = new google.maps.Map(document.getElementById('map'),{
+                center: center,
+                zoom: 13
+            });
+            
+            request = {
+                location: center,
+                radius: 32186,
+                types: ['park']
+            };
+            
+            
+             service = new google.maps.places.PlacesService(map);
+            
+            service.nearbySearch(request, callback);
+            
+            google.maps.event.addListener(map, 'rightclick', function(event){
+                map.setCenter(event.latLng)
+                clearResults(markers)
+                
+                var request = {
+                    location: event.latLng,
+                    radius: 32186,
+                    types: ['park']
+                };
+                service.nearbySearch(request, callback);
+            })
+        }
+        
+        function callback(results, status){
+            if(status == google.maps.places.PlacesServiceStatus.OK){
+                for (var i =0; i < results.length; i++){
+                    markers.push(createMarker(results[i]));
+                }
+            }
+        }
+        
+        function createMarker(place){
+            var placeLoc = place.geometry.location;
+            var marker = new google.maps.Marker({
+                map: map,
+                position: place.geometry.location
+            });
+            marker.addListener('click', function() {
+                infowindow.open(map, marker);
+                infowindow.setContent(place.name);
+            })
+            return marker;
+        }
+        
+        function clearResults(markers) {
+            for (var m in markers) {
+                markers[m].setMap(null)
+            }
+            markers = [];
+        }
+        
+        google.maps.event.addDomListener(window, 'load', initialize);
+        </script>
+        
     <title>Park Information</title>
+
+    <style>
+        html, body, #map{
+        height: 80%;
+        margin: 15%;
+        padding: 0px;
+        }
+        </style>
 
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
@@ -18,20 +98,31 @@
 
             <nav>
                 <ul class="nav" id="nav">
-                    <li style="font-size:22px"><a href="#">home</a></li>
+                    <li style="font-size:22px"><a href="index.html">home</a></li>
             </nav>
-        </header>
- 
-        <hr class="solid">
-        <section>
+
+            <section>
             
-            <h1 style="font-size:50px">Park Information</h1>
-     
+                <h1 style="font-size:50px">Park Information</h1>
+            </section>
+
+            <div id="map">
+       
+            </div>
+
+            <section>
+            
             <h1 style="font-size:27px">Number of people at park:</h1>
             <h1 style="font-size:27px">Peak hours:</h1>
             <h1 style="font-size:27px">Should you go there?</h1>
-        </section>
+            </section>
+
+        </header>
+ 
     </div>
 </body>
 
+
+
+  
 </html>
