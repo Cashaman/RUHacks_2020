@@ -18,6 +18,10 @@ ul {
     color: white;
     
 }
+.container1 {
+    text-align: center;
+    color: white;
+   
 
 .name {
     width: 26 0px;
@@ -104,3 +108,11 @@ hr.solid {
     background-color:none;
     color: rgb(24, 85, 0);
   }
+
+.map{
+
+    padding-left: 10%;
+    margin-top: 10%;
+    max-width: 100%;
+
+}
