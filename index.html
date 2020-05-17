@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-
 </head>
 
 <body>
@@ -27,7 +26,23 @@
             <img id="logo" src="images/logo.png" alt="logo" class="logo">
             <h1 style="font-size:50px">Keeping Everyone Alive</h1>
             <div class="search-box">
-                <input type="text" class="search-txt" name="" placeholder="Enter Park Name">
+                <form action ="searchbar.html" method="GET">
+                    <input id="searchbar" type="text" class="search-txt" name="searchbar" placeholder="Enter Park Name">
+                    <script>
+                        function initAutocomplete() {
+                            const input = document.getElementById('searchbox');
+                            const searchbox = new google.maps.places.Searchbox(input);
+                            searchBox.addListener('places_changed', function() {
+                                const places = searchBox.getPlaces();
+
+                                if (places.length == 0) {
+                                    return;
+                                }
+                        }
+                    </script>
+                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtOCGsSX2_N8iPGg5HqV58P07CF0y6MdA&libraries=places&callback=initAutocomplete"
+                        async defer></script>
+                </form>
             </div>
             <div class="find-park">
                 <form action ="FindPage.html" method="GET">
@@ -42,5 +57,6 @@
             
         </section>
     </div>
+    
 </body>
 </html>
